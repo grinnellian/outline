@@ -20,7 +20,7 @@ services:
       - ./fakes3:/fakes3_root
   outline:
     image: outline:v001
-    command: yarn dev
+    # command: yarn dev
     build:
       context: .
       dockerfile: Dockerfile
@@ -30,6 +30,8 @@ services:
       - "3000:3000"
     volumes:
       - .:/opt/outline
+    env_file: 
+      - ".env"
     depends_on:
       - postgres
       - redis
